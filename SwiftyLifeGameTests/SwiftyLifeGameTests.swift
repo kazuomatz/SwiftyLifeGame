@@ -7,28 +7,35 @@
 //
 
 import XCTest
+import UIKit
 @testable import SwiftyLifeGame
 
 class SwiftyLifeGameTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        LifeGame.shared.clear()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testLifeCheck() {
+        
+        LifeGame.shared.clear()
+        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 1), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 0)
+        
+        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 0), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 1)
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 1), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 2)
+
+        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 2), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 3)
+
+        
     }
 
 }

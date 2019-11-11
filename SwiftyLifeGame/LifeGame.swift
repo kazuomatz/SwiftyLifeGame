@@ -14,11 +14,14 @@ class LifeGame {
     let rows = 30
     var status = [[Bool]]()
     
+    // Singleton Class
     static let shared = LifeGame()
+    
     private init() {
         randamize()
     }
     
+    // Set celll state randomly
     public func randamize() {
         status = [[Bool]]()
         for _ in 0 ..< rows {
@@ -31,6 +34,7 @@ class LifeGame {
         }
     }
     
+    // Set celll state false
     public func clear() {
         status = [[Bool]]()
         for _ in 0 ..< rows {
@@ -42,6 +46,7 @@ class LifeGame {
         }
     }
 
+    // Check status of all cells
     public func checkLife()  {
         var newStatus = [[Bool]]()
         for row in 0 ..< rows {
@@ -60,16 +65,21 @@ class LifeGame {
         self.status[y][x] = status
     }
     
+    public func setStatus(point: CGPoint, status:Bool) {
+        let x = Int(point.x)
+        let y = Int(point.y)
+        self.status[y][x] = status
+    }
+    
+    
     public func getStatus(index: Int) -> Bool {
         let x = index % LifeGame.shared.columns
         let y = index / LifeGame.shared.rows
         return self.status[y][x]
     }
     
-    private func checkCell(point: CGPoint) -> Bool {
-        
-        let x = Int(point.x)
-        let y = Int(point.y)
+    // Count living cells around
+    internal func countNeighbors(x:Int, y:Int) -> Int {
         
         let points = [
             CGPoint(x: x-1 , y: y-1),
@@ -105,8 +115,17 @@ class LifeGame {
             }
             count += status[y][x] ? 1 : 0
         }
-
+        return count
+    }
+    
+    // Check state of cell
+    internal func checkCell(point: CGPoint) -> Bool {
         
+        let x = Int(point.x)
+        let y = Int(point.y)
+        
+        let count = countNeighbors(x: x, y: y)
+
         if !status[y][x]  {
             if count == 3 {
                 return true

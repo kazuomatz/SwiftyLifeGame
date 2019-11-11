@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		2131594B2377D5D800BA63C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131594A2377D5D800BA63C8 /* AppDelegate.swift */; };
 		2131594D2377D5D800BA63C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131594C2377D5D800BA63C8 /* SceneDelegate.swift */; };
-		2131594F2377D5D800BA63C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131594E2377D5D800BA63C8 /* ViewController.swift */; };
 		213159522377D5D800BA63C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213159502377D5D800BA63C8 /* Main.storyboard */; };
 		213159542377D5D900BA63C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213159532377D5D900BA63C8 /* Assets.xcassets */; };
 		213159572377D5D900BA63C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213159552377D5D900BA63C8 /* LaunchScreen.storyboard */; };
 		213159622377D5D900BA63C8 /* SwiftyLifeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213159612377D5D900BA63C8 /* SwiftyLifeGameTests.swift */; };
 		2131596E2377D60E00BA63C8 /* LifeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596C2377D60E00BA63C8 /* LifeGame.swift */; };
 		2131596F2377D60E00BA63C8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596D2377D60E00BA63C8 /* MasterViewController.swift */; };
+		213159702378EB5900BA63C8 /* LifeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596C2377D60E00BA63C8 /* LifeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,6 @@
 		213159472377D5D800BA63C8 /* SwiftyLifeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyLifeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2131594A2377D5D800BA63C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2131594C2377D5D800BA63C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2131594E2377D5D800BA63C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		213159512377D5D800BA63C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		213159532377D5D900BA63C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		213159562377D5D900BA63C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 				2131596D2377D60E00BA63C8 /* MasterViewController.swift */,
 				2131594A2377D5D800BA63C8 /* AppDelegate.swift */,
 				2131594C2377D5D800BA63C8 /* SceneDelegate.swift */,
-				2131594E2377D5D800BA63C8 /* ViewController.swift */,
 				213159502377D5D800BA63C8 /* Main.storyboard */,
 				213159532377D5D900BA63C8 /* Assets.xcassets */,
 				213159552377D5D900BA63C8 /* LaunchScreen.storyboard */,
@@ -207,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2131596F2377D60E00BA63C8 /* MasterViewController.swift in Sources */,
-				2131594F2377D5D800BA63C8 /* ViewController.swift in Sources */,
 				2131594B2377D5D800BA63C8 /* AppDelegate.swift in Sources */,
 				2131594D2377D5D800BA63C8 /* SceneDelegate.swift in Sources */,
 				2131596E2377D60E00BA63C8 /* LifeGame.swift in Sources */,
@@ -219,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213159622377D5D900BA63C8 /* SwiftyLifeGameTests.swift in Sources */,
+				213159702378EB5900BA63C8 /* LifeGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
