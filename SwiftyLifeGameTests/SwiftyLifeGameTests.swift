@@ -23,19 +23,88 @@ class SwiftyLifeGameTests: XCTestCase {
     func testLifeCheck() {
         
         LifeGame.shared.clear()
+        
+        //  | | | |
+        //  | |■| |
+        //  | | | |
         LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 1), status: true)
         XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 0)
-        
+
+        //underpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■| | |
+        //  | |■| |
+        //  | | | |
         LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 0), status: true)
         XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 1)
 
+        //underpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■| | |
+        //  |■|■| |
+        //  | | | |
         LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 1), status: true)
         XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 2)
 
+        //lives on to the next generation
+        XCTAssertTrue(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        
+        //  |■| | |
+        //  |■|■| |
+        //  |■| | |
         LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 2), status: true)
         XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 3)
-
         
+        //lives on to the next generation
+        XCTAssertTrue(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■|■| |
+        //  |■|■| |
+        //  |■| | |
+        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 0), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 4)
+        
+        //overpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■|■|■|
+        //  |■|■| |
+        //  |■| | |
+        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 0), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 5)
+
+        //overpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■|■|■|
+        //  |■|■|■|
+        //  |■| | |
+        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 1), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 6)
+
+        //overpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■|■|■|
+        //  |■|■|■|
+        //  |■| |■|
+        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 2), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 7)
+
+        //overpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
+        //  |■|■|■|
+        //  |■|■|■|
+        //  |■|■|■|
+        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 2), status: true)
+        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 8)
+
+        //overpopulation
+        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+
     }
 
 }
