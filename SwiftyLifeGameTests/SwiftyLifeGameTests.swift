@@ -117,7 +117,6 @@ class SwiftyLifeGameTests: XCTestCase {
         //  | | | | .. | | | |
         //  | | | | .. | | | |
         lg.setStatus(point: CGPoint(x: 0, y: 0), status: true)
-
         lg.setStatus(point: CGPoint(x: lg.columns - 1, y: 0), status: true)
         
         XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 1)
@@ -125,7 +124,6 @@ class SwiftyLifeGameTests: XCTestCase {
         //under population
         XCTAssertFalse(lg.checkCell(point: CGPoint(x:0, y:0)))
 
-        
         XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 1)
         
         //under population
@@ -148,14 +146,14 @@ class SwiftyLifeGameTests: XCTestCase {
         //lives on to the next generation
         XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
 
-        //    0 1 2  .. 17 18 19
-        // 0 |■| | | .. | | |■|
-        // 1 | | | | .. | | |■|
-        // 2 | | | | .. | | | |
+        //     0 1 2  .. 17 18 19
+        //  0 |■| | | .. | | |■|
+        //  1 | | | | .. | | |■|
+        //  2 | | | | .. | | | |
         //       :         :
-        //27 | | | | .. | | | |
-        //28 | | | | .. | | | |
-        //29 |■| | | .. | | | |
+        // 27 | | | | .. | | | |
+        // 28 | | | | .. | | | |
+        // 29 |■| | | .. | | | |
         lg.setStatus(point: CGPoint(x: 0, y: lg.rows - 1), status: true)
         XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 3)
 
@@ -167,14 +165,14 @@ class SwiftyLifeGameTests: XCTestCase {
         //lives on to the next generation
         XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
 
-        //    0 1 2  .. 17 18 19
-        // 0 |■| | | .. | | |■|
-        // 1 | | | | .. | | |■|
-        // 2 | | | | .. | | | |
+        //     0 1 2  .. 17 18 19
+        //  0 |■| | | .. | | |■|
+        //  1 | | | | .. | | |■|
+        //  2 | | | | .. | | | |
         //       :         :
-        //27 | | | | .. | | | |
-        //28 | | | | .. | | | |
-        //29 |■|■| | .. | | | |
+        // 27 | | | | .. | | | |
+        // 28 | | | | .. | | | |
+        // 29 |■|■| | .. | | | |
         lg.setStatus(point: CGPoint(x: 1, y: lg.rows - 1), status: true)
         XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 4)
 
@@ -186,14 +184,14 @@ class SwiftyLifeGameTests: XCTestCase {
         //lives on to the next generation
         XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
 
-        //    0 1 2  .. 17 18 19
-        // 0 |■| | | .. | | |■|
-        // 1 |■| | | .. | | |■|
-        // 2 | | | | .. | | | |
+        //     0 1 2  .. 17 18 19
+        //  0 |■| | | .. | | |■|
+        //  1 |■| | | .. | | |■|
+        //  2 | | | | .. | | | |
         //       :         :
-        //27 | | | | .. | | | |
-        //28 | | | | .. | | | |
-        //29 |■|■| | .. | | | |
+        // 27 | | | | .. | | | |
+        // 28 | | | | .. | | | |
+        // 29 |■|■| | .. | | | |
         lg.setStatus(point: CGPoint(x: 0, y: 1), status: true)
         XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 5)
 
