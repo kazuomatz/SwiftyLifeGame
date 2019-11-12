@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class LifeGame {
-    let columns = 20
-    let rows = 30
+    
+    internal let columns = 20
+    internal let rows = 30
+    
     var status = [[Bool]]()
     
     // Singleton Class
@@ -71,7 +73,6 @@ class LifeGame {
         self.status[y][x] = status
     }
     
-    
     public func getStatus(index: Int) -> Bool {
         let x = index % LifeGame.shared.columns
         let y = index / LifeGame.shared.rows
@@ -82,16 +83,16 @@ class LifeGame {
     internal func countNeighbors(x:Int, y:Int) -> Int {
         
         let points = [
-            CGPoint(x: x-1 , y: y-1),
-            CGPoint(x: x-1 , y: y),
-            CGPoint(x: x-1 , y: y+1),
+            CGPoint(x: x - 1 , y: y - 1),
+            CGPoint(x: x - 1 , y: y),
+            CGPoint(x: x - 1 , y: y + 1),
 
-            CGPoint(x: x , y: y-1),
-            CGPoint(x: x , y: y+1),
+            CGPoint(x: x , y: y - 1),
+            CGPoint(x: x , y: y + 1),
 
-            CGPoint(x: x+1 , y: y-1),
-            CGPoint(x: x+1 , y: y),
-            CGPoint(x: x+1 , y: y+1),
+            CGPoint(x: x + 1 , y: y - 1),
+            CGPoint(x: x + 1 , y: y),
+            CGPoint(x: x + 1 , y: y + 1),
             ]
 
         var count:Int = 0
@@ -104,13 +105,14 @@ class LifeGame {
             if x < 0 {
                 x = columns - 1
             }
+            else if x == columns {
+                x = 0
+            }
+            
             if y < 0 {
                 y = rows - 1
             }
-            if x == columns {
-                x = 0
-            }
-            if y == rows {
+            else if y == rows {
                 y = 0
             }
             count += status[y][x] ? 1 : 0
@@ -128,17 +130,21 @@ class LifeGame {
 
         if !status[y][x]  {
             if count == 3 {
+                //change to live
                 return true
             }
             else {
+                //under population
                 return false
             }
         }
         else {
             if count == 2 || count == 3 {
+                //lives on to the next generation
                 return true
             }
             else {
+                //over population or under population
                 return false
             }
         }

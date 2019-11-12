@@ -11,100 +11,199 @@ import UIKit
 @testable import SwiftyLifeGame
 
 class SwiftyLifeGameTests: XCTestCase {
-
+    let lg = LifeGame.shared
+    
     override func setUp() {
-        LifeGame.shared.clear()
+        lg.clear()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testLifeCheck() {
+    func testNormalCheck() {
         
-        LifeGame.shared.clear()
+        lg.clear()
         
         //  | | | |
         //  | |■| |
         //  | | | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 1), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 0)
+        lg.setStatus(point: CGPoint(x: 1, y: 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 0)
 
-        //underpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //under population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■| | |
         //  | |■| |
         //  | | | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 0), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 1)
+        lg.setStatus(point: CGPoint(x: 0, y: 0), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 1)
 
-        //underpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //under population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■| | |
         //  |■|■| |
         //  | | | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 1), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 2)
+        lg.setStatus(point: CGPoint(x: 0, y: 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 2)
 
         //lives on to the next generation
-        XCTAssertTrue(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:1, y:1)))
         
         //  |■| | |
         //  |■|■| |
         //  |■| | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 0, y: 2), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 3)
+        lg.setStatus(point: CGPoint(x: 0, y: 2), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 3)
         
         //lives on to the next generation
-        XCTAssertTrue(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■|■| |
         //  |■|■| |
         //  |■| | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 0), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 4)
+        lg.setStatus(point: CGPoint(x: 1, y: 0), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 4)
         
-        //overpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■|■|■|
         //  |■|■| |
         //  |■| | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 0), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 5)
+        lg.setStatus(point: CGPoint(x: 2, y: 0), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 5)
 
-        //overpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■|■|■|
         //  |■|■|■|
         //  |■| | |
-        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 1), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 6)
+        lg.setStatus(point: CGPoint(x: 2, y: 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 6)
 
-        //overpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■|■|■|
         //  |■|■|■|
         //  |■| |■|
-        LifeGame.shared.setStatus(point: CGPoint(x: 2, y: 2), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 7)
+        lg.setStatus(point: CGPoint(x: 2, y: 2), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 7)
 
-        //overpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
         //  |■|■|■|
         //  |■|■|■|
         //  |■|■|■|
-        LifeGame.shared.setStatus(point: CGPoint(x: 1, y: 2), status: true)
-        XCTAssertTrue(LifeGame.shared.countNeighbors(x: 1, y: 1) == 8)
+        lg.setStatus(point: CGPoint(x: 1, y: 2), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 1, y: 1) == 8)
 
-        //overpopulation
-        XCTAssertFalse(LifeGame.shared.checkCell(point: CGPoint(x:1, y:1)))
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:1, y:1)))
 
+    }
+    
+    func testBoundaryCheck () {
+        
+        lg.clear()
+        
+        //   0 1 2  .. 17 18 19
+        //  |■| | | .. | | |■|
+        //  | | | | .. | | | |
+        //  | | | | .. | | | |
+        lg.setStatus(point: CGPoint(x: 0, y: 0), status: true)
+
+        lg.setStatus(point: CGPoint(x: lg.columns - 1, y: 0), status: true)
+        
+        XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 1)
+        
+        //under population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:0, y:0)))
+
+        
+        XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 1)
+        
+        //under population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x: lg.columns - 1, y: 0)))
+       
+        
+        //   0 1 2  .. 17 18 19
+        //  |■| | | .. | | |■|
+        //  | | | | .. | | |■|
+        //  | | | | .. | | | |
+        lg.setStatus(point: CGPoint(x: lg.columns - 1, y: 1), status: true)
+
+        XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 2)
+
+        //lives on to the next generation
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:0, y:0)))
+        
+        XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 2)
+
+        //lives on to the next generation
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
+
+        //    0 1 2  .. 17 18 19
+        // 0 |■| | | .. | | |■|
+        // 1 | | | | .. | | |■|
+        // 2 | | | | .. | | | |
+        //       :         :
+        //27 | | | | .. | | | |
+        //28 | | | | .. | | | |
+        //29 |■| | | .. | | | |
+        lg.setStatus(point: CGPoint(x: 0, y: lg.rows - 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 3)
+
+        //lives on to the next generation
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:0, y:0)))
+
+        XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 3)
+
+        //lives on to the next generation
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
+
+        //    0 1 2  .. 17 18 19
+        // 0 |■| | | .. | | |■|
+        // 1 | | | | .. | | |■|
+        // 2 | | | | .. | | | |
+        //       :         :
+        //27 | | | | .. | | | |
+        //28 | | | | .. | | | |
+        //29 |■|■| | .. | | | |
+        lg.setStatus(point: CGPoint(x: 1, y: lg.rows - 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 4)
+
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:0, y:0)))
+        
+        XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 3)
+
+        //lives on to the next generation
+        XCTAssertTrue(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
+
+        //    0 1 2  .. 17 18 19
+        // 0 |■| | | .. | | |■|
+        // 1 |■| | | .. | | |■|
+        // 2 | | | | .. | | | |
+        //       :         :
+        //27 | | | | .. | | | |
+        //28 | | | | .. | | | |
+        //29 |■|■| | .. | | | |
+        lg.setStatus(point: CGPoint(x: 0, y: 1), status: true)
+        XCTAssertTrue(lg.countNeighbors(x: 0, y: 0) == 5)
+
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:0, y:0)))
+
+        XCTAssertTrue(lg.countNeighbors(x: lg.columns - 1, y: 0) == 4)
+
+        //over population
+        XCTAssertFalse(lg.checkCell(point: CGPoint(x:lg.columns - 1, y:0)))
     }
 
 }
