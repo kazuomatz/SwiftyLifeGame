@@ -63,7 +63,7 @@ class LifeGame {
     
     public func setStatus(index:Int, status:Bool) {
         let x = index % LifeGame.shared.columns
-        let y = index / LifeGame.shared.rows
+        let y = index / LifeGame.shared.columns
         self.status[y][x] = status
     }
     
@@ -75,7 +75,7 @@ class LifeGame {
     
     public func getStatus(index: Int) -> Bool {
         let x = index % LifeGame.shared.columns
-        let y = index / LifeGame.shared.rows
+        let y = index / LifeGame.shared.columns
         return self.status[y][x]
     }
     

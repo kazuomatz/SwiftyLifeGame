@@ -24,11 +24,20 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.layer.borderWidth = 1
-        collectionView.layer.borderColor = UIColor.black.cgColor
+
+        collectionView.layer.borderColor = UIColor.systemGray6.cgColor
         collectionView.isHidden = true
+        
+        self.startButton.layer.borderWidth = 1.0
+        self.startButton.layer.cornerRadius = 5
+        self.startButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: Selector(("refreshCells")))
+    
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: Selector(("clearCells")))
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -61,15 +70,19 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 0.5
         if LifeGame.shared.getStatus(index: indexPath.item) {
-            cell.backgroundColor = .darkGray
+            cell.backgroundColor = .systemPink
         }
         else {
-            cell.backgroundColor = .white
+            cell.backgroundColor = .systemGray6
         }
         return cell
     }
     
     @IBAction func start(_ sender: Any) {
+        toggleState();
+    }
+    
+    func toggleState() {
         if !start {
             timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { (timer) in
                 LifeGame.shared.checkLife()
@@ -85,9 +98,29 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        LifeGame.shared.setStatus(index: indexPath.item, status: !LifeGame.shared.getStatus(index: indexPath.item))
+        let status = !LifeGame.shared.getStatus(index: indexPath.item)
+        LifeGame.shared.setStatus(index: indexPath.item, status: status )
         self.collectionView.reloadData()
+    }
+    
+    @objc
+    func refreshCells () {
+        LifeGame.shared.randamize()
+        self.collectionView.reloadData()
+        if start {
+            toggleState();
+        }
+    }
+    
+    @objc
+    func clearCells() {
+        LifeGame.shared.clear()
+        self.collectionView.reloadData()
+        if start {
+            toggleState();
+        }
     }
 }
 
