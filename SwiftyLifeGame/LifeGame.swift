@@ -23,7 +23,7 @@ class LifeGame {
         randamize()
     }
     
-    // Set celll state randomly
+    // Set cell state randomly
     public func randamize() {
         status = [[Bool]]()
         for _ in 0 ..< rows {
@@ -36,7 +36,7 @@ class LifeGame {
         }
     }
     
-    // Set celll state false
+    // Set cell state false
     public func clear() {
         status = [[Bool]]()
         for _ in 0 ..< rows {
