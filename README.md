@@ -1,6 +1,6 @@
 ## SwiftyLifeGame
 
-This is Conway's Game of Life implemented by Swift.
+This is Conway's Game of Life implemented by Swift 5.
  
 <img src="https://user-images.githubusercontent.com/2704723/68657427-09b00880-0577-11ea-8557-29e58ba7cb71.PNG" width="30%"/>
 
