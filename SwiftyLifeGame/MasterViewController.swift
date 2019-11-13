@@ -32,14 +32,15 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.startButton.layer.cornerRadius = 5
         self.startButton.layer.borderColor = UIColor.systemBlue.cgColor
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: Selector(("refreshCells")))
-    
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: Selector(("refreshCells")))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: Selector(("clearCells")))
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if animated == false {
+            self.collectionView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -98,20 +99,24 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let status = !LifeGame.shared.getStatus(index: indexPath.item)
         LifeGame.shared.setStatus(index: indexPath.item, status: status )
         self.collectionView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showSettingSegue") {
+            ((segue.destination as! UINavigationController).topViewController as! SettingTableViewController).masterViewController = self
+        }
+    }
+    
     @objc
     func refreshCells () {
-        LifeGame.shared.randamize()
-        self.collectionView.reloadData()
         if start {
             toggleState();
         }
+        performSegue(withIdentifier: "showSettingSegue", sender: nil)
     }
     
     @objc
