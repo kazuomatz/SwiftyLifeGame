@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		211E9C59237CF3DB001B2E07 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E9C58237CF3DB001B2E07 /* AppData.swift */; };
+		211E9C5F237D5056001B2E07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 211E9C61237D5056001B2E07 /* Localizable.strings */; };
 		2131594B2377D5D800BA63C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131594A2377D5D800BA63C8 /* AppDelegate.swift */; };
 		2131594D2377D5D800BA63C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131594C2377D5D800BA63C8 /* SceneDelegate.swift */; };
 		213159522377D5D800BA63C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213159502377D5D800BA63C8 /* Main.storyboard */; };
@@ -17,10 +18,10 @@
 		2131596E2377D60E00BA63C8 /* LifeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596C2377D60E00BA63C8 /* LifeGame.swift */; };
 		2131596F2377D60E00BA63C8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596D2377D60E00BA63C8 /* MasterViewController.swift */; };
 		213159702378EB5900BA63C8 /* LifeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131596C2377D60E00BA63C8 /* LifeGame.swift */; };
-		21A68B0D237BB35200E6CD9F /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0C237BB35200E6CD9F /* SettingTableViewController.swift */; };
-		21A68B0F237BB62900E6CD9F /* Oscillator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0E237BB62900E6CD9F /* Oscillator.swift */; };
+		21A68B0D237BB35200E6CD9F /* PatternTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0C237BB35200E6CD9F /* PatternTableViewController.swift */; };
+		21A68B0F237BB62900E6CD9F /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0E237BB62900E6CD9F /* Pattern.swift */; };
 		21A68B11237BCE0600E6CD9F /* OscillatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B10237BCE0600E6CD9F /* OscillatorTests.swift */; };
-		21A68B12237BCF2200E6CD9F /* Oscillator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0E237BB62900E6CD9F /* Oscillator.swift */; };
+		21A68B12237BCF2200E6CD9F /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B0E237BB62900E6CD9F /* Pattern.swift */; };
 		21A68B14237CD3AA00E6CD9F /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B13237CD3AA00E6CD9F /* ColorTableViewCell.swift */; };
 		21A68B16237CDF0B00E6CD9F /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A68B15237CDF0B00E6CD9F /* ColorCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,10 @@
 
 /* Begin PBXFileReference section */
 		211E9C58237CF3DB001B2E07 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		211E9C5B237D4F49001B2E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		211E9C5C237D4F49001B2E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		211E9C60237D5056001B2E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		211E9C62237D505C001B2E07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		213159472377D5D800BA63C8 /* SwiftyLifeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyLifeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2131594A2377D5D800BA63C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2131594C2377D5D800BA63C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +54,8 @@
 		213159632377D5D900BA63C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2131596C2377D60E00BA63C8 /* LifeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeGame.swift; sourceTree = "<group>"; };
 		2131596D2377D60E00BA63C8 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		21A68B0C237BB35200E6CD9F /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		21A68B0E237BB62900E6CD9F /* Oscillator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscillator.swift; sourceTree = "<group>"; };
+		21A68B0C237BB35200E6CD9F /* PatternTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTableViewController.swift; sourceTree = "<group>"; };
+		21A68B0E237BB62900E6CD9F /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		21A68B10237BCE0600E6CD9F /* OscillatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OscillatorTests.swift; sourceTree = "<group>"; };
 		21A68B13237CD3AA00E6CD9F /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		21A68B15237CDF0B00E6CD9F /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -80,7 +85,7 @@
 				2131594C2377D5D800BA63C8 /* SceneDelegate.swift */,
 				2131596D2377D60E00BA63C8 /* MasterViewController.swift */,
 				2131594A2377D5D800BA63C8 /* AppDelegate.swift */,
-				21A68B0C237BB35200E6CD9F /* SettingTableViewController.swift */,
+				21A68B0C237BB35200E6CD9F /* PatternTableViewController.swift */,
 				21A68B13237CD3AA00E6CD9F /* ColorTableViewCell.swift */,
 				21A68B15237CDF0B00E6CD9F /* ColorCollectionViewCell.swift */,
 			);
@@ -110,12 +115,13 @@
 			children = (
 				211E9C58237CF3DB001B2E07 /* AppData.swift */,
 				2131596C2377D60E00BA63C8 /* LifeGame.swift */,
-				21A68B0E237BB62900E6CD9F /* Oscillator.swift */,
+				21A68B0E237BB62900E6CD9F /* Pattern.swift */,
 				211E9C5A237D083F001B2E07 /* UI */,
 				213159502377D5D800BA63C8 /* Main.storyboard */,
 				213159532377D5D900BA63C8 /* Assets.xcassets */,
 				213159552377D5D900BA63C8 /* LaunchScreen.storyboard */,
 				213159582377D5D900BA63C8 /* Info.plist */,
+				211E9C61237D5056001B2E07 /* Localizable.strings */,
 			);
 			path = SwiftyLifeGame;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2131593E2377D5D800BA63C8;
 			productRefGroup = 213159482377D5D800BA63C8 /* Products */;
@@ -212,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213159572377D5D900BA63C8 /* LaunchScreen.storyboard in Resources */,
+				211E9C5F237D5056001B2E07 /* Localizable.strings in Resources */,
 				213159542377D5D900BA63C8 /* Assets.xcassets in Resources */,
 				213159522377D5D800BA63C8 /* Main.storyboard in Resources */,
 			);
@@ -235,10 +243,10 @@
 				21A68B14237CD3AA00E6CD9F /* ColorTableViewCell.swift in Sources */,
 				2131594B2377D5D800BA63C8 /* AppDelegate.swift in Sources */,
 				2131594D2377D5D800BA63C8 /* SceneDelegate.swift in Sources */,
-				21A68B0F237BB62900E6CD9F /* Oscillator.swift in Sources */,
+				21A68B0F237BB62900E6CD9F /* Pattern.swift in Sources */,
 				2131596E2377D60E00BA63C8 /* LifeGame.swift in Sources */,
 				21A68B16237CDF0B00E6CD9F /* ColorCollectionViewCell.swift in Sources */,
-				21A68B0D237BB35200E6CD9F /* SettingTableViewController.swift in Sources */,
+				21A68B0D237BB35200E6CD9F /* PatternTableViewController.swift in Sources */,
 				211E9C59237CF3DB001B2E07 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A68B12237BCF2200E6CD9F /* Oscillator.swift in Sources */,
+				21A68B12237BCF2200E6CD9F /* Pattern.swift in Sources */,
 				21A68B11237BCE0600E6CD9F /* OscillatorTests.swift in Sources */,
 				213159622377D5D900BA63C8 /* SwiftyLifeGameTests.swift in Sources */,
 				213159702378EB5900BA63C8 /* LifeGame.swift in Sources */,
@@ -265,10 +273,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		211E9C61237D5056001B2E07 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				211E9C60237D5056001B2E07 /* ja */,
+				211E9C62237D505C001B2E07 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		213159502377D5D800BA63C8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				213159512377D5D800BA63C8 /* Base */,
+				211E9C5B237D4F49001B2E07 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -277,6 +295,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				213159562377D5D900BA63C8 /* Base */,
+				211E9C5C237D4F49001B2E07 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -288,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -348,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -413,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kazuomatz.SwiftyLifeGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kazuomatz.SwiftyLifeGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -8,22 +8,25 @@
 
 import UIKit
 
-class SettingTableViewController: UITableViewController {
+class PatternTableViewController: UITableViewController {
     
     var masterViewController:MasterViewController?
    
     let colorRowHeight:CGFloat = 84
-    let oscillatorsRowHeight:CGFloat = 42
+    let patternsRowHeight:CGFloat = 42
     
-    let oscillators = [
+    let patterns = [
         Blinker(),
         TrafficLight(),
         Watch(),
         Pulsar(),
+        Acorn(),
+        Octagon(),
         Galaxy(),
         Pentadecathlon(),
         Glider(),
         DieHard(),
+        SpaceShipHeavyWeight(),
         SchickEngineB(),
         SchickEngineT(),
         Random()
@@ -33,7 +36,7 @@ class SettingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Oscillators"
+        self.title = NSLocalizedString("Pattern", comment: "")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: Selector(("dismiss")))
         self.tableView.allowsMultipleSelection = false
     }
@@ -46,7 +49,7 @@ class SettingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return oscillators.count
+            return patterns.count
         }
         else {
             return 1
@@ -66,10 +69,11 @@ class SettingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section  == 0 {
-            return "Color"
+            return NSLocalizedString("color of cell", comment: "")
         }
         else {
-            return "Oscillator"
+            return NSLocalizedString("Pattern", comment: "")
+
         }
     }
     
@@ -88,7 +92,7 @@ class SettingTableViewController: UITableViewController {
             return colorRowHeight;
         }
         else {
-            return oscillatorsRowHeight;
+            return patternsRowHeight;
         }
     }
     
@@ -96,7 +100,7 @@ class SettingTableViewController: UITableViewController {
             if indexPath.section == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                 cell.selectionStyle = .none
-                let oscillator = self.oscillators[indexPath.row]
+                let oscillator = self.patterns[indexPath.row]
                 cell.textLabel?.text = oscillator.name
                 return cell
             }
@@ -110,7 +114,7 @@ class SettingTableViewController: UITableViewController {
     internal func dismiss() {
         if self.selectedIndex >= 0  && self.masterViewController != nil {
             LifeGame.shared.clear()
-            LifeGame.shared.setOscillator(oscillator: oscillators[self.selectedIndex])
+            LifeGame.shared.setOscillator(oscillator: patterns[self.selectedIndex])
         }
         self.masterViewController?.viewWillAppear(false)
         self.dismiss(animated: true)

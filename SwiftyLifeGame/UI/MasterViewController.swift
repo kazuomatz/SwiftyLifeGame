@@ -30,8 +30,9 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         self.startButton.layer.borderWidth = 1.0
         self.startButton.layer.cornerRadius = 5
-        self.startButton.layer.borderColor = UIColor.systemBlue.cgColor
-        
+        self.startButton.layer.borderColor = UIColor.label.cgColor
+        self.startButton.tintColor = UIColor.label
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: Selector(("refreshCells")))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: Selector(("clearCells")))
     }
@@ -95,12 +96,12 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.collectionView.reloadData()
             })
             runnning = true
-            self.startButton.setTitle("Stop", for: .normal)
+            self.startButton.setTitle(NSLocalizedString("Stop", comment: ""), for: .normal)
         }
         else {
             runnning = false
             timer.invalidate()
-            self.startButton.setTitle("Start", for: .normal)
+            self.startButton.setTitle(NSLocalizedString("Start", comment: ""), for: .normal)
         }
     }
     
@@ -112,7 +113,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showSettingSegue") {
-            ((segue.destination as! UINavigationController).topViewController as! SettingTableViewController).masterViewController = self
+            ((segue.destination as! UINavigationController).topViewController as! PatternTableViewController).masterViewController = self
         }
     }
     

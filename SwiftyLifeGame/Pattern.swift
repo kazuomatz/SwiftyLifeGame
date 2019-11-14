@@ -1,5 +1,5 @@
 //
-//  Oscillator.swift
+//  Pattern.swift
 //  SwiftyLifeGame
 //
 //  Created by Kazuo Matsunaga on 2019/11/13.
@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public class Oscillator {
+public class Pattern {
     
-    var _name = "Oscillator"
+    var _name = NSLocalizedString("Oscillator", comment: "")
     var cells:[CGPoint] {
         get {
             return []
@@ -57,11 +57,11 @@ public class Oscillator {
     }
 }
 
-public class Random: Oscillator {
+public class Random: Pattern {
 
     override init() {
         super.init()
-        _name = "Random"
+        _name = NSLocalizedString("Random", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -80,11 +80,11 @@ public class Random: Oscillator {
 }
 
 // Blinker
-public class Blinker: Oscillator {
+public class Blinker: Pattern {
 
     override init() {
         super.init()
-        _name = "Blinker"
+        _name = NSLocalizedString("Blinker", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -97,11 +97,11 @@ public class Blinker: Oscillator {
     }
 }
 
-public class TrafficLight: Oscillator {
+public class TrafficLight: Pattern {
 
     override init() {
         super.init()
-        _name = "Traffic Light"
+        _name = NSLocalizedString("Traffic Light", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -127,11 +127,11 @@ public class TrafficLight: Oscillator {
 }
 
 
-public class Watch: Oscillator {
+public class Watch: Pattern {
 
     override init() {
         super.init()
-        _name = "Watch"
+        _name = NSLocalizedString("Watch", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -185,11 +185,11 @@ public class Watch: Oscillator {
     }
 }
 
-public class Pulsar: Oscillator {
+public class Pulsar: Pattern {
 
     override init() {
         super.init()
-        _name = "Pulsar"
+        _name = NSLocalizedString("Pulsar", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -262,11 +262,11 @@ public class Pulsar: Oscillator {
     }
 }
 
-public class Galaxy: Oscillator {
+public class Galaxy: Pattern {
 
     override init() {
         super.init()
-        _name = "Galaxy"
+        _name = NSLocalizedString("Galaxy", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -327,11 +327,11 @@ public class Galaxy: Oscillator {
 }
 
 
-class Pentadecathlon: Oscillator {
+class Pentadecathlon: Pattern {
 
     override init() {
         super.init()
-        _name = "Pentadecathlon"
+        _name = NSLocalizedString("Pentadecathlon", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -364,46 +364,29 @@ class Pentadecathlon: Oscillator {
     }
 }
 
-class Glider: Oscillator {
+class Glider: Pattern {
     override init() {
         super.init()
-        _name = "Glider"
+        _name = NSLocalizedString("Glider", comment: "")
     }
     override var cells:[CGPoint] {
         get {
             return  [
-                CGPoint(x:5, y:0),
-                CGPoint(x:12, y:0),
-                CGPoint(x:4, y:1),
-                CGPoint(x:13, y:1),
-                CGPoint(x:16, y:1),
-                CGPoint(x:1, y:2),
-                CGPoint(x:4, y:2),
-                CGPoint(x:5, y:2),
-                CGPoint(x:6, y:2),
-                CGPoint(x:11, y:2),
-                CGPoint(x:12, y:2),
-                CGPoint(x:13, y:2),
-                CGPoint(x:15, y:2),
-
-                CGPoint(x:2, y:3),
-                CGPoint(x:15, y:3),
-                CGPoint(x:16, y:3),
-                CGPoint(x:17, y:3),
-
-                CGPoint(x:0, y:4),
-                CGPoint(x:1, y:4),
-                CGPoint(x:2, y:4)
+                CGPoint(x:0, y:0),
+                CGPoint(x:1, y:0),
+                CGPoint(x:2, y:0),
+                CGPoint(x:0, y:1),
+                CGPoint(x:1, y:2)
             ]
         }
     }
 }
 
 
-class DieHard: Oscillator {
+class DieHard: Pattern {
     override init() {
         super.init()
-        _name = "DieHard"
+        _name = NSLocalizedString("DieHard", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -420,10 +403,10 @@ class DieHard: Oscillator {
     }
 }
 
-class SchickEngineB: Oscillator {
+class SchickEngineB: Pattern {
     override init() {
         super.init()
-        _name = "SchickEngine(B-heptmino)"
+        _name = NSLocalizedString("SchickEngine(B-heptmino)", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -461,10 +444,10 @@ class SchickEngineB: Oscillator {
     }
 }
 
-class SchickEngineT: Oscillator {
+class SchickEngineT: Pattern {
     override init() {
         super.init()
-        _name = "SchickEngine(T-Tetromino)"
+        _name = NSLocalizedString("SchickEngine(T-Tetromino)", comment: "")
     }
     override var cells:[CGPoint] {
         get {
@@ -501,6 +484,91 @@ class SchickEngineT: Oscillator {
                 CGPoint(x:6, y:8),
                 CGPoint(x:7, y:8),
                 CGPoint(x:8, y:8)
+            ]
+        }
+    }
+}
+
+class Acorn: Pattern {
+    override init() {
+        super.init()
+        _name = NSLocalizedString("Acorn", comment: "")
+    }
+    override var cells:[CGPoint] {
+        get {
+            return [
+                CGPoint(x:1, y:0),
+                CGPoint(x:3, y:1),
+                CGPoint(x:0, y:2),
+                CGPoint(x:1, y:2),
+                CGPoint(x:4, y:2),
+                CGPoint(x:5, y:2),
+                CGPoint(x:6, y:2)
+            ]
+        }
+    }
+}
+
+class Octagon: Pattern {
+    override init() {
+        super.init()
+        _name = NSLocalizedString("Octagon", comment: "")
+    }
+    override var cells:[CGPoint] {
+        get {
+            return [
+                CGPoint(x:3, y:0),
+                CGPoint(x:4, y:0),
+                
+                CGPoint(x:2, y:1),
+                CGPoint(x:5, y:1),
+
+                CGPoint(x:1, y:2),
+                CGPoint(x:6, y:2),
+
+                CGPoint(x:0, y:3),
+                CGPoint(x:0, y:4),
+
+                CGPoint(x:7, y:3),
+                CGPoint(x:7, y:4),
+
+                CGPoint(x:1, y:5),
+                CGPoint(x:6, y:5),
+
+                CGPoint(x:2, y:6),
+                CGPoint(x:5, y:6),
+
+                CGPoint(x:3, y:7),
+                CGPoint(x:4, y:7),
+
+            ]
+        }
+    }
+}
+
+class SpaceShipHeavyWeight: Pattern {
+    override init() {
+        super.init()
+        _name = NSLocalizedString("Space Ship(Heavy Weight)", comment: "")
+    }
+    override var cells:[CGPoint] {
+        get {
+            return [
+                CGPoint(x:3, y:0),
+                CGPoint(x:4, y:0),
+                CGPoint(x:1, y:1),
+                CGPoint(x:6, y:1),
+                
+                CGPoint(x:0, y:2),
+                CGPoint(x:0, y:3),
+                CGPoint(x:6, y:3),
+
+                CGPoint(x:0, y:4),
+                CGPoint(x:1, y:4),
+                CGPoint(x:2, y:4),
+                CGPoint(x:3, y:4),
+                CGPoint(x:4, y:4),
+                CGPoint(x:5, y:4)
             ]
         }
     }

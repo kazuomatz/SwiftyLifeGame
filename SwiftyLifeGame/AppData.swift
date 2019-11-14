@@ -28,10 +28,10 @@ class AppData {
         UIColor.systemTeal,
         UIColor.systemIndigo,
         UIColor.systemGreen,
+        UIColor.systemOrange,
         UIColor.systemPurple,
         UIColor.systemYellow,
         UIColor.systemRed,
-        UIColor.systemGray6,
         UIColor.label
     ]
     

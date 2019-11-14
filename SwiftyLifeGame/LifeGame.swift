@@ -85,14 +85,14 @@ class LifeGame {
         return self.status[y][x]
     }
     
-    public func setOscillator(oscillator: Oscillator, at: CGPoint) {
+    public func setOscillator(oscillator: Pattern, at: CGPoint) {
         oscillator.cells.forEach {
             let point = $0
             self.setStatus(point: CGPoint(x: at.x + point.x, y: at.y + point.y), status: true)
         }
     }
 
-    public func setOscillator(oscillator: Oscillator) {
+    public func setOscillator(oscillator: Pattern) {
         let width = Int(oscillator.size.width)
         let height = Int(oscillator.size.height)
         

@@ -73,7 +73,7 @@
         <!--Root View Controller-->
         <scene sceneID="osr-5Q-YEb">
             <objects>
-                <tableViewController id="Muw-7o-Syo" customClass="SettingTableViewController" customModule="SwiftyLifeGame" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Muw-7o-Syo" customClass="PatternTableViewController" customModule="SwiftyLifeGame" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cdo-xs-oEK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
