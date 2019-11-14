@@ -2,7 +2,7 @@
 
 This is Conway's Game of Life implemented by Swift 5.
  
-<img src="https://user-images.githubusercontent.com/2704723/68657427-09b00880-0577-11ea-8557-29e58ba7cb71.PNG" width="30%"/>
+<img src="https://user-images.githubusercontent.com/2704723/68848550-d35bc000-0713-11ea-9f9b-92a72a20ffff.png" width="30%"/>
 
 
 
