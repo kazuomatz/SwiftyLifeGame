@@ -49,16 +49,22 @@ class LifeGame {
     }
 
     // Check status of all cells
-    public func checkLife()  {
+    public func checkLife() -> Int  {
         var newStatus = [[Bool]]()
+        var count:Int = 0
         for row in 0 ..< rows {
             var rows = [Bool]()
             for column  in 0 ..< columns {
-                rows.append(checkCell(point:CGPoint(x: column, y: row)))
+                let status = checkCell(point:CGPoint(x: column, y: row))
+                rows.append(status)
+                if status {
+                    count += 1
+                }
             }
             newStatus.append(rows)
         }
         self.status = newStatus
+        return count
     }
     
     public func setStatus(index:Int, status:Bool) {
@@ -77,6 +83,22 @@ class LifeGame {
         let x = index % LifeGame.shared.columns
         let y = index / LifeGame.shared.columns
         return self.status[y][x]
+    }
+    
+    public func setOscillator(oscillator: Oscillator, at: CGPoint) {
+        oscillator.cells.forEach {
+            let point = $0
+            self.setStatus(point: CGPoint(x: at.x + point.x, y: at.y + point.y), status: true)
+        }
+    }
+
+    public func setOscillator(oscillator: Oscillator) {
+        let width = Int(oscillator.size.width)
+        let height = Int(oscillator.size.height)
+        
+        let x = self.columns / 2 - width / 2
+        let y = self.rows / 2 - height / 2
+        self.setOscillator(oscillator: oscillator, at: CGPoint(x: x, y: y))
     }
     
     // Count living cells around
