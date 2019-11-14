@@ -12,7 +12,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var objects = [Any]()
     var timer = Timer()
-    var start = false
+    var runnning = false
     
     let columns: Int = LifeGame.shared.columns
     let rows: Int = LifeGame.shared.rows
@@ -25,7 +25,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        collectionView.layer.borderColor = UIColor.systemGray6.cgColor
+        collectionView.layer.borderColor = UIColor.lightGray.cgColor
         collectionView.isHidden = true
         
         self.startButton.layer.borderWidth = 1.0
@@ -71,10 +71,10 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 0.5
         if LifeGame.shared.getStatus(index: indexPath.item) {
-            cell.backgroundColor = .systemPink
+            cell.backgroundColor = AppData.shared.cellColor
         }
         else {
-            cell.backgroundColor = .systemGray6
+            cell.backgroundColor = .systemBackground
         }
         return cell
     }
@@ -84,16 +84,21 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func toggleState() {
-        if !start {
+        if !runnning {
             timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { (timer) in
-                LifeGame.shared.checkLife()
+                if LifeGame.shared.checkLife() == 0 {
+                    if self.runnning {
+                        timer.invalidate()
+                        self.toggleState()
+                    }
+                }
                 self.collectionView.reloadData()
             })
-            start = true
+            runnning = true
             self.startButton.setTitle("Stop", for: .normal)
         }
         else {
-            start = false
+            runnning = false
             timer.invalidate()
             self.startButton.setTitle("Start", for: .normal)
         }
@@ -113,7 +118,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @objc
     func refreshCells () {
-        if start {
+        if runnning {
             toggleState();
         }
         performSegue(withIdentifier: "showSettingSegue", sender: nil)
@@ -123,7 +128,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     func clearCells() {
         LifeGame.shared.clear()
         self.collectionView.reloadData()
-        if start {
+        if runnning {
             toggleState();
         }
     }

@@ -49,16 +49,22 @@ class LifeGame {
     }
 
     // Check status of all cells
-    public func checkLife()  {
+    public func checkLife() -> Int  {
         var newStatus = [[Bool]]()
+        var count:Int = 0
         for row in 0 ..< rows {
             var rows = [Bool]()
             for column  in 0 ..< columns {
-                rows.append(checkCell(point:CGPoint(x: column, y: row)))
+                let status = checkCell(point:CGPoint(x: column, y: row))
+                rows.append(status)
+                if status {
+                    count += 1
+                }
             }
             newStatus.append(rows)
         }
         self.status = newStatus
+        return count
     }
     
     public func setStatus(index:Int, status:Bool) {

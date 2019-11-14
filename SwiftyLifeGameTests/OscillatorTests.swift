@@ -15,7 +15,7 @@ class OscillatorTests: XCTestCase {
     }
 
     func testCellSize() {
-        let  blinker = Blinker()
+        let blinker = Blinker()
         XCTAssertTrue(blinker.size.width == 3)
         XCTAssertTrue(blinker.size.height == 1)
 
