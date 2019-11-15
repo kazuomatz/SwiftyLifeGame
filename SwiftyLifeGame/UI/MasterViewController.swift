@@ -28,10 +28,10 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.layer.borderColor = UIColor.lightGray.cgColor
         collectionView.isHidden = true
         
-        self.startButton.layer.borderWidth = 1.0
-        self.startButton.layer.cornerRadius = 5
-        self.startButton.layer.borderColor = UIColor.label.cgColor
+        self.startButton.layer.borderWidth = 2.0
+        self.startButton.layer.cornerRadius = 10
         self.startButton.tintColor = UIColor.label
+        self.startButton.setTitle(NSLocalizedString("Start", comment:""), for: .normal)
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: Selector(("refreshCells")))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: Selector(("clearCells")))
