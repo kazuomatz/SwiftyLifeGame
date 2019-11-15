@@ -25,14 +25,15 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        collectionView.layer.borderColor = UIColor.lightGray.cgColor
+        collectionView.layer.borderColor = self.cellBorderColor()
         collectionView.isHidden = true
         
         self.startButton.layer.borderWidth = 2.0
         self.startButton.layer.cornerRadius = 10
         self.startButton.tintColor = UIColor.label
         self.startButton.setTitle(NSLocalizedString("Start", comment:""), for: .normal)
-
+        self.setButtonColor()
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: Selector(("refreshCells")))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: Selector(("clearCells")))
     }
@@ -126,14 +127,18 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
+    internal func setButtonColor() {
         if traitCollection.userInterfaceStyle == .dark {
             self.startButton.layer.borderColor = UIColor.white.cgColor
         }
         else {
             self.startButton.layer.borderColor = UIColor.black.cgColor
         }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.setButtonColor()
     }
     
     @objc
