@@ -69,7 +69,7 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = self.cellBorderColor()
         cell.layer.borderWidth = 0.5
         if LifeGame.shared.getStatus(index: indexPath.item) {
             cell.backgroundColor = AppData.shared.cellColor
@@ -114,6 +114,25 @@ class MasterViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showSettingSegue") {
             ((segue.destination as! UINavigationController).topViewController as! PatternTableViewController).masterViewController = self
+        }
+    }
+    
+    internal func cellBorderColor() -> CGColor {
+        if traitCollection.userInterfaceStyle == .dark {
+            return UIColor.lightGray.cgColor
+        }
+        else {
+            return UIColor.darkGray.cgColor
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.userInterfaceStyle == .dark {
+            self.startButton.layer.borderColor = UIColor.white.cgColor
+        }
+        else {
+            self.startButton.layer.borderColor = UIColor.black.cgColor
         }
     }
     
